@@ -32,7 +32,7 @@
         <ImageView
             android:id="@+id/big_image"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:contentDescription="@string/description"
             android:scaleType="centerCrop"
@@ -44,6 +44,7 @@
             android:layout_height="55dp"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
             android:background="@drawable/btn_bg"
             android:orientation="horizontal">
 
@@ -51,7 +52,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="40dp"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/down"
@@ -64,6 +65,7 @@
                 android:layout_marginStart="40dp"
                 android:gravity="end"
                 android:text="Download"
+                android:textAllCaps="false"
                 android:textColor="@color/black_color"
                 android:textSize="25dp"
                 tools:ignore="SpUsage" />

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#dddddd"
+    android:background="#eee"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -17,6 +17,6 @@
         android:id="@+id/rec_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="5dp" />
 
 </LinearLayout>

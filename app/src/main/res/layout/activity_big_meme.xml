@@ -33,7 +33,7 @@
             android:id="@+id/big_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:contentDescription="@string/description"
             android:scaleType="centerCrop"
             tools:src="@drawable/placeholder" />

@@ -12,11 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresPermission;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.PermissionChecker;
 
 import com.bumptech.glide.Glide;
 
@@ -54,8 +52,7 @@ public class BigMemeAct extends AppCompatActivity {
                     ActivityCompat.requestPermissions(BigMemeAct.this,
                             new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             1234);
-                }
-                else {
+                } else {
 
                     download(url, title);
 
@@ -64,6 +61,19 @@ public class BigMemeAct extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            download(url, title);
+        }
+
+        if (grantResults[0] != PackageManager.PERMISSION_GRANTED)
+            Toast.makeText(this, "Can't Download Without Permission Grants", Toast.LENGTH_SHORT).show();
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     private void download(String url, String title) {
@@ -83,16 +93,5 @@ public class BigMemeAct extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-        if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
-            download(url, title);
-        }
-
-        if (grantResults[0] != PackageManager.PERMISSION_GRANTED)
-            Toast.makeText(this, "Can't Download Without Permission Grants", Toast.LENGTH_SHORT).show();
-
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
 }
